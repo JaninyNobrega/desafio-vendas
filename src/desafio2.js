@@ -4,17 +4,17 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 
-// Caminhos dos arquivos
+
 const caminhoEstoque = path.join(__dirname, '..', 'data', 'estoque.json');
 const caminhoMovimentacoes = path.join(__dirname, '..', 'data', 'movimentacoes.json');
 
-// Interface para ler entrada do usuário
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-// Carregar dados do arquivo
+
 function carregarEstoque() {
   try {
     const dados = fs.readFileSync(caminhoEstoque, 'utf8');
@@ -34,7 +34,7 @@ function carregarMovimentacoes() {
   }
 }
 
-// Salvar dados no arquivo
+
 function salvarEstoque(dados) {
   fs.writeFileSync(caminhoEstoque, JSON.stringify(dados, null, 2));
 }
@@ -43,16 +43,14 @@ function salvarMovimentacoes(dados) {
   fs.writeFileSync(caminhoMovimentacoes, JSON.stringify(dados, null, 2));
 }
 
-// Variáveis globais
 let estoque = carregarEstoque();
 let movimentacoes = carregarMovimentacoes();
 
-// Função para encontrar um produto pelo código
+
 function encontrarProduto(codigo) {
   return estoque.estoque.find(p => p.codigoProduto === codigo);
 }
 
-// Função para realizar movimentação de estoque
 function movimentarEstoque(codigoProduto, quantidade, tipoMovimentacao, descricao) {
   const produto = encontrarProduto(codigoProduto);
   
@@ -64,7 +62,7 @@ function movimentarEstoque(codigoProduto, quantidade, tipoMovimentacao, descrica
   const idMovimentacao = movimentacoes.proximoId++;
   const estoqueAnterior = produto.estoque;
   
-  // Aplica a movimentação
+
   if (tipoMovimentacao === 'entrada') {
     produto.estoque += quantidade;
   } else if (tipoMovimentacao === 'saida') {
@@ -75,7 +73,7 @@ function movimentarEstoque(codigoProduto, quantidade, tipoMovimentacao, descrica
     produto.estoque -= quantidade;
   }
   
-  // Registra a movimentação
+ 
   const movimentacao = {
     id: idMovimentacao,
     codigoProduto: codigoProduto,
@@ -90,11 +88,11 @@ function movimentarEstoque(codigoProduto, quantidade, tipoMovimentacao, descrica
   
   movimentacoes.movimentacoes.push(movimentacao);
   
-  // Salva nos arquivos
+
   salvarEstoque(estoque);
   salvarMovimentacoes(movimentacoes);
   
-  // Exibe o resultado
+
   console.log("\n╔═══════════════════════════════════════╗");
   console.log("║    MOVIMENTAÇÃO REALIZADA COM SUCESSO ║");
   console.log("╚═══════════════════════════════════════╝");
@@ -109,7 +107,7 @@ function movimentarEstoque(codigoProduto, quantidade, tipoMovimentacao, descrica
   console.log("═══════════════════════════════════════\n");
 }
 
-// Função para mostrar o estoque atual
+
 function mostrarEstoque() {
   console.log("\n╔═══════════════════════════════════════════════╗");
   console.log("║            ESTOQUE ATUAL                      ║");
@@ -121,7 +119,7 @@ function mostrarEstoque() {
   });
 }
 
-// Função para mostrar histórico de movimentações
+
 function mostrarHistorico() {
   console.log("\n╔═══════════════════════════════════════════════╗");
   console.log("║         HISTÓRICO DE MOVIMENTAÇÕES            ║");
@@ -141,7 +139,7 @@ function mostrarHistorico() {
   });
 }
 
-// Menu principal
+
 function menu() {
   console.log("┌─────────────────────────────────┐");
   console.log("│   📦 SISTEMA DE ESTOQUE 📦      │");

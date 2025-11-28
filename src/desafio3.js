@@ -7,16 +7,16 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-// Função para calcular os juros
+
 function calcularJuros(valorOriginal, dataVencimento) {
   const hoje = new Date();
   const vencimento = new Date(dataVencimento);
   
-  // Zera as horas para comparar apenas as datas
+  
   hoje.setHours(0, 0, 0, 0);
   vencimento.setHours(0, 0, 0, 0);
   
-  // Calcula a diferença em dias
+ 
   const diferencaEmMs = hoje - vencimento;
   const diasAtraso = Math.floor(diferencaEmMs / (1000 * 60 * 60 * 24));
   
@@ -34,13 +34,11 @@ function calcularJuros(valorOriginal, dataVencimento) {
     };
   }
   
-  // Calcula a multa: 2,5% ao dia
   const taxaMultaDiaria = 0.025; // 2,5%
   const percentualMultaTotal = diasAtraso * taxaMultaDiaria;
   const valorMulta = valorOriginal * percentualMultaTotal;
   const valorTotal = valorOriginal + valorMulta;
-  
-  // Exibe os resultados
+
   console.log("\n╔═══════════════════════════════════════════════════╗");
   console.log("║         ⚠️  CÁLCULO DE JUROS E MULTAS ⚠️          ║");
   console.log("╚═══════════════════════════════════════════════════╝\n");
@@ -67,7 +65,7 @@ function calcularJuros(valorOriginal, dataVencimento) {
   };
 }
 
-// Função para validar data
+
 function validarData(dataStr) {
   const regex = /^\d{4}-\d{2}-\d{2}$/;
   if (!regex.test(dataStr)) {
@@ -77,7 +75,6 @@ function validarData(dataStr) {
   return data instanceof Date && !isNaN(data);
 }
 
-// Menu de opções
 function menu() {
   console.log("\n┌──────────────────────────────────────────┐");
   console.log("│  💳 CALCULADORA DE JUROS E MULTAS 💳     │");
@@ -106,7 +103,6 @@ function menu() {
   });
 }
 
-// Calcular um único pagamento
 function calcularUmPagamento() {
   rl.question("\n💵 Digite o valor original (ex: 1000.50): R$ ", (valorStr) => {
     rl.question("📅 Digite a data de vencimento (AAAA-MM-DD): ", (data) => {
@@ -130,7 +126,6 @@ function calcularUmPagamento() {
   });
 }
 
-// Calcular múltiplos pagamentos
 function calcularMultiplosPagamentos() {
   const pagamentos = [];
   
@@ -143,7 +138,7 @@ function calcularMultiplosPagamentos() {
           return;
         }
         
-        // Processar todos os pagamentos
+        
         console.log("\n\n" + "=".repeat(60));
         console.log("           📊 RESUMO DE TODOS OS PAGAMENTOS");
         console.log("=".repeat(60));

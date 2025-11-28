@@ -3,39 +3,37 @@
 const fs = require('fs');
 const path = require('path');
 
-// Caminho para o arquivo JSON
+
 const caminhoArquivo = path.join(__dirname, '..', 'data', 'vendas.json');
 
-// Função que calcula a comissão de uma venda
+
 function calcularComissao(valorVenda) {
   if (valorVenda < 100) {
-    return 0; // Não gera comissão
+    return 0; /
   } else if (valorVenda < 500) {
-    return valorVenda * 0.01; // 1% de comissão
+    return valorVenda * 0.01; 
   } else {
-    return valorVenda * 0.05; // 5% de comissão
+    return valorVenda * 0.05; 
   }
 }
 
-// Função principal
 function processarComissoes() {
   try {
-    // Lê o arquivo JSON
     const dados = fs.readFileSync(caminhoArquivo, 'utf8');
     const vendas = JSON.parse(dados);
     
     console.log('📂 Arquivo lido com sucesso!\n');
     
-    // Objeto para armazenar as comissões de cada vendedor
+   
     const comissoesPorVendedor = {};
     const detalhesPorVendedor = {};
     
-    // Percorrer todas as vendas
+   
     vendas.vendas.forEach(venda => {
       const vendedor = venda.vendedor;
       const comissao = calcularComissao(venda.valor);
       
-      // Se o vendedor ainda não existe no objeto, inicializa
+     
       if (!comissoesPorVendedor[vendedor]) {
         comissoesPorVendedor[vendedor] = 0;
         detalhesPorVendedor[vendedor] = {
@@ -45,7 +43,7 @@ function processarComissoes() {
         };
       }
       
-      // Acumula os dados
+     
       comissoesPorVendedor[vendedor] += comissao;
       detalhesPorVendedor[vendedor].totalVendas += venda.valor;
       detalhesPorVendedor[vendedor].quantidadeVendas++;
@@ -54,7 +52,6 @@ function processarComissoes() {
       }
     });
     
-    // Mostrar os resultados
     console.log("╔════════════════════════════════════════════════════════╗");
     console.log("║          RELATÓRIO DE COMISSÕES - VENDEDORES          ║");
     console.log("╚════════════════════════════════════════════════════════╝\n");
@@ -73,7 +70,7 @@ function processarComissoes() {
       console.log('');
     }
     
-    // Salvar resultado em um arquivo
+  
     const resultado = {
       dataProcessamento: new Date().toISOString(),
       comissoes: comissoesPorVendedor,
