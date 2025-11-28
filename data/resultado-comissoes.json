@@ -1,0 +1,31 @@
+{
+  "dataProcessamento": "2025-11-28T12:48:28.428Z",
+  "comissoes": {
+    "João Silva": 495.677,
+    "Maria Souza": 465.94950000000006,
+    "Carlos Oliveira": 379.3715,
+    "Ana Lima": 404.9805
+  },
+  "detalhes": {
+    "João Silva": {
+      "totalVendas": 10754.699999999999,
+      "quantidadeVendas": 10,
+      "vendasComComissao": 10
+    },
+    "Maria Souza": {
+      "totalVendas": 9874.300000000001,
+      "quantidadeVendas": 9,
+      "vendasComComissao": 8
+    },
+    "Carlos Oliveira": {
+      "totalVendas": 7928.35,
+      "quantidadeVendas": 8,
+      "vendasComComissao": 8
+    },
+    "Ana Lima": {
+      "totalVendas": 8763.95,
+      "quantidadeVendas": 9,
+      "vendasComComissao": 8
+    }
+  }
+}

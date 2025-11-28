@@ -1,4 +1,4 @@
-const vendas = {
+{
   "vendas": [
     { "vendedor": "João Silva", "valor": 1200.50 },
     { "vendedor": "João Silva", "valor": 950.75 },
@@ -37,38 +37,4 @@ const vendas = {
     { "vendedor": "Ana Lima", "valor": 420.90 },
     { "vendedor": "Ana Lima", "valor": 315.40 }
   ]
-};
-
-function calcularComissao(valorVenda) {
-  if (valorVenda < 100) {
-    return 0; 
-  } else if (valorVenda < 500) {
-    return valorVenda * 0.01; 
-  } else {
-    return valorVenda * 0.05; 
-  }
-}
-
-
-const comissoesPorVendedor = {};
-
-
-vendas.vendas.forEach(venda => {
-  const vendedor = venda.vendedor;
-  const comissao = calcularComissao(venda.valor);
-  
-  /
-  if (!comissoesPorVendedor[vendedor]) {
-    comissoesPorVendedor[vendedor] = 0;
-  }
-  
- 
-  comissoesPorVendedor[vendedor] += comissao;
-});
-
-
-console.log("=== COMISSÕES DOS VENDEDORES ===\n");
-for (const vendedor in comissoesPorVendedor) {
-  const comissaoTotal = comissoesPorVendedor[vendedor].toFixed(2);
-  console.log(`${vendedor}: R$ ${comissaoTotal}`);
 }

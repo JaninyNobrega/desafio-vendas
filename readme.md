@@ -62,47 +62,23 @@ git clone https://github.com/JaninyNobrega/desafio-vendas.git
 cd desafio-vendas
 ```
 
-Ou crie manualmente:
-```bash
-mkdir desafio-vendas
-cd desafio-vendas
-```
-
-### Passo 2: Crie os arquivos do projeto
-
-Crie os seguintes arquivos na pasta do projeto:
-- `desafio1.js`
-- `desafio2.js`
-- `desafio3.js`
-- `README.md` (este arquivo)
-
-### Passo 3: Abra no VSCode
-
-```bash
-code .
-```
-
-Ou abra o VSCode manualmente e vá em **Arquivo > Abrir Pasta** e selecione a pasta `desafio-vendas`.
-
----
-
 ## 🚀 Como Executar
 
 Abra o terminal integrado do VSCode (`` Ctrl + ` `` ou Menu **Terminal > New Terminal**)
 
 ### Executar Desafio 1 (Comissões)
 ```bash
-node desafio1.js
+node src/desafio1.js
 ```
 
 ### Executar Desafio 2 (Estoque)
 ```bash
-node desafio2.js
+node src/desafio2.js
 ```
 
 ### Executar Desafio 3 (Juros)
 ```bash
-node desafio3.js
+node src/desafio3.js
 ```
 
 ---
@@ -236,67 +212,6 @@ Valor da multa: R$ 200.00
 **Formato de data**: 
 - ✅ Correto: `2025-11-15` (Ano-Mês-Dia)
 - ❌ Errado: `15/11/2025` ou `15-11-2025`
-
----
-
-## 📁 Estrutura do Projeto
-
-```
-desafio-vendas/
-│
-├── desafio1.js          # Sistema de cálculo de comissões
-├── desafio2.js          # Sistema de controle de estoque
-├── desafio3.js          # Calculadora de juros e multas
-└── README.md            # Documentação do projeto
-```
-
----
-
-## 📖 Regras de Negócio
-
-### Comissões (Desafio 1)
-| Faixa de Valor | Comissão |
-|----------------|----------|
-| < R$ 100,00 | 0% |
-| R$ 100,00 a R$ 499,99 | 1% |
-| ≥ R$ 500,00 | 5% |
-
-### Estoque (Desafio 2)
-- Cada movimentação recebe um ID único sequencial
-- Toda movimentação deve ter uma descrição
-- Saídas só são permitidas se houver estoque suficiente
-- O sistema exibe o estoque anterior e o estoque final após cada operação
-
-### Juros (Desafio 3)
-- Taxa: **2,5% ao dia** sobre o valor original
-- Cálculo: `Multa = Valor Original × Dias de Atraso × 0,025`
-- Valor Total: `Valor Original + Multa`
-- Se não houver atraso, não há multa
-
----
-
-## 🐛 Solução de Problemas
-
-### "node não é reconhecido como comando"
-**Solução**: O Node.js não está instalado ou não está no PATH do sistema. Reinstale o Node.js.
-
-### Programa não executa
-**Solução**: 
-1. Verifique se está na pasta correta: `cd desafio-vendas`
-2. Verifique se o arquivo existe: `dir` (Windows) ou `ls` (Mac/Linux)
-3. Execute com: `node nomeDoArquivo.js`
-
-### Erro de sintaxe
-**Solução**: Certifique-se de que copiou o código corretamente, sem caracteres especiais ou aspas erradas.
-
----
-
-## 💡 Dicas
-
-- Use as **setas ↑ ↓** no terminal para navegar entre comandos anteriores
-- Pressione **Ctrl + C** para encerrar qualquer programa em execução
-- No Desafio 2, você pode fazer várias movimentações antes de sair do programa
-- Teste diferentes cenários para validar as regras de negócio
 
 ---
 
