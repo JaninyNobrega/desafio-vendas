@@ -58,7 +58,7 @@ Deve aparecer algo como: `10.2.4`
 
 Se você tem o Git instalado:
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/JaninyNobrega/desafio-vendas.git
 cd desafio-vendas
 ```
 
